@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import HeaderComponent from "@/components/header";
+import { Locale } from "../../../i18n.config";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,12 +13,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: { lang: Locale };
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}><HeaderComponent/>{children}</body>
+    <html lang="es">
+      <body className={inter.className}>
+        <HeaderComponent />
+        {children}
+      </body>
     </html>
   );
 }
