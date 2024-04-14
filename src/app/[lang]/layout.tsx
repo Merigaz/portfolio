@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import HeaderComponent from "@/components/header";
 import { Locale, i18n } from "../../i18n.config";
+import { getDictionary } from "@/libs/getDictionary";
+import DictionaryProvider from "@/libs/dictionaryProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const openSans = Open_Sans({ weight: "300", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,18 +16,21 @@ export const metadata: Metadata = {
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
 }
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params,
 }: Readonly<{
   children: React.ReactNode;
   params: { lang: Locale };
 }>) {
+  const dictionary = await getDictionary(params.lang);
   return (
     <html lang={params.lang}>
-      <body className={inter.className}>
-        <HeaderComponent lang={params.lang} />
-        {children}
+      <body className={openSans.className}>
+        <DictionaryProvider dictionary={dictionary}>
+          <HeaderComponent lang={params.lang} />
+          {children}
+        </DictionaryProvider>
       </body>
     </html>
   );

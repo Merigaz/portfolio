@@ -1,8 +1,9 @@
 {
-    "navigation": {
-        "home":"Home",
-        "about":"About Me",
-        "projects":"Projects",
-        "contact":"Contact"
-    }
+  "navigation": {
+    "lang": "English",
+    "home": "Home",
+    "about": "About Me",
+    "projects": "Projects",
+    "contact": "Contact"
+  }
 }
