@@ -4,6 +4,9 @@
 
 @layer base {
     body {
-        @apply bg-[#0D1117] py-4 px-6
+        @apply flex flex-col py-6 bg-[#0D1117] h-screen w-screen gap-2 items-center
+    }
+    .switch-lang {
+        @apply flex flex-row gap-1 items-center
     }
 }

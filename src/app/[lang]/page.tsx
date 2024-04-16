@@ -6,6 +6,7 @@ export default async function Home({
   params: { lang: Locale };
 }) {
   return (
-    <h1>home</h1>
+    <main className="bg-bgHome bg-contain bg-no-repeat bg-center grow w-[86%]">
+    </main>
   );
 }
