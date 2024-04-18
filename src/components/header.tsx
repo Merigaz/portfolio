@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Logo from "../../public/logo.png";
+import Logo from "../../public/logo.svg";
 import { getDictionary } from "@/libs/getDictionary";
 import { Locale } from "@/i18n.config";
 import SwitchLanguage from "./switch-lang";
